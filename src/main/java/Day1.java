@@ -1,8 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Day1 {
 
@@ -40,9 +38,8 @@ public class Day1 {
     }
 
     public static void secondProblem(Scanner scanner){
-        List<Integer> topThree = new ArrayList<>();
+        List<Integer> calories = new ArrayList<>();
         int sum = 0;
-        int minIndex;
         String data;
         while(scanner.hasNext()){
             data = scanner.nextLine();
@@ -50,26 +47,13 @@ public class Day1 {
                 sum+= Integer.parseInt(data);
             }
             else{
-                if(topThree.size() < 3) {
-                    topThree.add(sum);
-                }
-                else{
-                    minIndex = 0;
-                    for(int i=1;i<3;i++){
-                        if(topThree.get(i) < topThree.get(minIndex))
-                            minIndex = i;
-                    }
-                    if(sum > topThree.get(minIndex))
-                        topThree.set(minIndex, sum);
-                }
-
+                calories.add(sum);
                 sum=0;
             }
         }
-        sum = 0;
-        for(int i=0;i<3;i++)
-            sum+=topThree.get(i);
-        System.out.println(sum);
+        calories.sort(Comparator.reverseOrder());
+        System.out.println(calories.get(0) + calories.get(1) + calories.get(2));
+
 
     }
 }
