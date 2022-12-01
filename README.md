@@ -1,0 +1,1 @@
+## 2022 Advent Of Code! :santa: :christmas_tree:
