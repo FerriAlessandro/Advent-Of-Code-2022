@@ -20,8 +20,6 @@ public class Day3 {
     public static void firstProblem(Scanner scanner){
         int sum = 0;
         boolean found;
-
-
         while(scanner.hasNext()){
             Set<Character> items = new HashSet<>();
             String data = scanner.nextLine();
